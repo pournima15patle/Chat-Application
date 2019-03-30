@@ -8,10 +8,11 @@ h2 {
     font-size: 200%;
   }
   button {
-    background-color:green;
+    background-color:navy;
+    border-radius: 12px;
     color: white;
-   /* padding: 14px 20px;*/
-    /*margin: 8px 0;*/
+    padding: 14px 20px;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
     /*width: 100%;*/
