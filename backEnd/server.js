@@ -1,10 +1,21 @@
+/*****************************************************************************************************
+ *  @Purpose  :To create the server and  populate it with this basic server code, 
+ *             Configuration of the database and connect the server with the database,
+ *             depending on which HTTP method is specified. 
+ * 
+ *  @file     :server.js
+ *  @author   :pournima15patle
+ *  @version  :1.0
+ *  @since    :28-03-2019
+ *****************************************************************************************************/
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
 // create express app
 const app = express();
 
-// parse requests of content-type - application/x-www-form-urlencoded
+// parse the client request
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse requests of content-type - application/json

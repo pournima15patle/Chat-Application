@@ -1,3 +1,12 @@
+/*****************************************************************************************************
+*  @Purpose  :
+*              
+*  @file     :user.routes.js             
+*  @author   :pournima15patle
+*  @version  :1.0
+*  @since    :19-03-2019
+*****************************************************************************************************/
+
 app.controller('loginControl',function($scope,$location,serviceLogin){
 
     $scope.login=function(){
@@ -9,7 +18,7 @@ app.controller('loginControl',function($scope,$location,serviceLogin){
             $location.path("/register");
         };
         $scope.go2=function(path){
-            $location.path("forgotPassword");
+            $location.path("/forgotPassword");
         };
         console.log(data);
 

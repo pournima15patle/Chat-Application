@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title> Login </title>
-    </head>
-    <body>
-        <form>
-            
-                <h2> <u> Login </u> </h2>
-                <div>
-                <label>Username:</label>
-                <input type="text" Username=" "><br><br>
-                <label>Password:</label>
-                <input type="password" Password><br><br>
-                <input type="submit" value= "Login"><br><br>
-                <a href="registration.html">Register</a> &nbsp  &nbsp &nbsp &nbsp 
-                <a href="mailValid.html">Forgot Password</a> 
-            </div>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-app="chatApp">
+    
+    <div  class ="container" ng-controller="loginController">
+        <form form name="loginForm" novalidate>
+            <h2 > <u> Login </u></h2>
+            <div>
+                <label for="email">Email</label><br />
+                <input type="email" id="email" ng-model="email" placeholder="Enter email address" required/><br/><br/>
+                <!-- <span ng-show="loginForm.email.$touched && loginForm.email.$error.email">Please enter valid email id.</span><br /><br /> -->
+                <!-- /*email:<input type="text" id="email" ng-model="email">*/ -->
+                <label for="password">Password</label><br/>
+                <input type="password" id="password" ng-model="password" placeholder="Enter password" required><br><br>
+
+                <button type="button" ng-click="submit()">Login</button><br>
+                <!-- <a href="register.html">Register</a>
+                <span class="element1"><a href="forgotPassword.html" >Forgot Password</a></span> -->
+                <a ng-href="#!register.html" ng-click="go()">Register</a> 
+                    <span class="element1"><a ng-href="#!forgotPassword.html" ng-click="go2()">Forgot Password</a></span>
+                <br><br>
+                </div>
         </form>
-    </body>
+    </div>
+</body>
+
 </html>

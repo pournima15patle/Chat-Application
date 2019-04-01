@@ -8,6 +8,7 @@ exports.registerService = (req , callback) => {
       callback(null,result);
     }
   })
+  
 }
 
 exports.loginService=(req,callback)=>{
