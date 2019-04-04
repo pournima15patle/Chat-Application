@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 
 // create express app
 const app = express();
+require('dotenv').config()
 
 // parse the client request
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -21,9 +22,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
+app.use(express.static('./frontEnd'));
+
+
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
+
 
 mongoose.Promise = global.Promise;
 

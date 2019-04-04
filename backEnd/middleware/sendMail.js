@@ -12,14 +12,14 @@ exports.sendMailer =(url) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'ppp021995@gmail.com',
-            pass: 'pournima123'
+            user: process.env.email,
+            pass: process.env.password
         }
     });
 
     var mailOptions = {
-        from: 'ppp021995@gmail.com',
-        to:   'ppp021995@gmail.com',
+        from: process.env.email,
+        to:   process.env.email,
         subject: 'Sending Email using Node.js',
         text: url
     };

@@ -64,23 +64,26 @@ exports.forgotPassword = (req, res) => {
             console.log("Payload", payload);
             //send payload to the generate token function 
             var obj = tokenGenerate.generateToken(payload);
-            var url = `http://localhost:4000/reset/${obj.token}`;
+            var url = `http://localhost:4000/#!/resetPassword/${obj.token}`;
             console.log(' URL', url);
             //send the token url to the send mailer function
             sendMail.sendMailer(url);
 
             response.token = obj.token
-            return res.status(200).send(url);
+            return res.status(200).send(response);
         }
     })
 }
 
 //controller for Reset Password
 exports.resetPassController = (req, res) => {
+    // console.log("control",req);
+    
     userService.resetPassService(req.body, (err, data) => {
         var response = {};
         if (err) {
-
+            //   console.log("dgsdefdes");
+              
             response.status = false;
             response.errors = err;
             return res.status(400).send(response);

@@ -32,6 +32,8 @@ exports.forgotPassService=(req,callback)=>{
 }
 
 exports.resetPassService=(req,callback)=>{
+  // console.log("services",req);
+  
   userModel.resetPassword(req,(err,result)=>{
     if(err){
       callback(err);

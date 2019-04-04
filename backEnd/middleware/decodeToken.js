@@ -3,7 +3,7 @@ exports.checkToken = (req, res, next) => {
     var token = req.headers['token'];
     // decode token
     if (token) {
-        jwt.verify(token, 'secretkey', (err, decoded) => {
+        jwt.verify(token, 'secretekey', (err, decoded) => {
             if (err) {
                 return res.send({
                     success: false,

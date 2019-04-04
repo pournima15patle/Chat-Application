@@ -10,7 +10,7 @@
 const mongoose = require('mongoose');
 bcrypt = require('bcrypt'),
     saltFactor = 10;
-var nodemailer = require('nodemailer');
+
 /**
  * Create database schema for chat app
  */
@@ -80,11 +80,12 @@ class Usermodel {
 
     //Creating user model for forgot password
     forgotPassword(body, callback) {
-        user.findOne({ email: body.email }, (err, result) => {
+        user.findOne({ 'email': body.email }, (err, result) => {
             if (err) {
                 console.log("error", err);
                 callback(err);
             } else {
+                
                 //check if email is not null and if it is match
                 if (result.email != null && body.email == result.email) {
                     console.log("result name", result.email);
@@ -103,15 +104,20 @@ class Usermodel {
 
     //Creating the user model for reset password
     resetPassword(body, callback) {
+        console.log("ada",body);
         
-        var pass = bcrypt.hashSync(body.password, saltFactor)
+        
+        var pass = bcrypt.hashSync(body.password, saltFactor);
+        console.log("bds",pass);
+        
 
         user.updateOne({ password: pass }, (err, result) => {
             if (err) {
                 callback(err);
             } else {
+                console.log("result",result)
                 console.log("Password Reseted Successfully....");
-                return callback(result);
+                return callback(null,result);
             }
         })
     }

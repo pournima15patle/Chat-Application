@@ -11,7 +11,6 @@ module.exports = (app) => {
     //require the controller file and middleware.
     const user = require('../controllers/user.controller.js');
     const token=require('../middleware/decodeToken');
-
     // Create a new user
     app.post('/register', user.registerController);
     // login the user
