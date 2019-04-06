@@ -24,6 +24,8 @@ exports.registerController = (req, res) => {
         } else {
             response.status = true;
             response.result = data;
+           
+            
             return res.status(200).send(response);
         }
     })
@@ -90,6 +92,23 @@ exports.resetPassController = (req, res) => {
         } else {
             response.status = true;
             response.result = data;
+            return res.status(200).send(response);
+        }
+    })
+}
+
+// controller for user list
+exports.getAllUserController=(req,res)=>{
+      
+    userService.getAllUserService(req.body,(err,data)=>{
+        var response={};
+        if(err){
+            response.status=false;
+            response.error=err;
+            return res.status(400).send(response);
+        }else{
+            response.status=true;
+            response.result=data;
             return res.status(200).send(response);
         }
     })

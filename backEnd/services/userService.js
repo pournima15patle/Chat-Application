@@ -42,3 +42,14 @@ exports.resetPassService=(req,callback)=>{
     }
   })
 }
+ 
+exports.getAllUserService=(req,callback)=>{
+
+  userModel.getAllUser(req,(err,result)=>{
+    if(err){
+      callback(err);
+    }else{
+      callback(null,result);
+    }
+  })
+}

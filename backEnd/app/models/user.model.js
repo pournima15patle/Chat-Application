@@ -17,11 +17,11 @@ bcrypt = require('bcrypt'),
 const UserSchema = mongoose.Schema({
     name: {
         type: String,
-        required: [true,'Name is required']
+        required: [true, 'Name is required']
     },
     email: {
         type: String,
-        required: [true,'email is ']
+        required: [true, 'email is required']
     },
     password: {
         type: String,
@@ -85,7 +85,7 @@ class Usermodel {
                 console.log("error", err);
                 callback(err);
             } else {
-                
+
                 //check if email is not null and if it is match
                 if (result.email != null && body.email == result.email) {
                     console.log("result name", result.email);
@@ -104,20 +104,28 @@ class Usermodel {
 
     //Creating the user model for reset password
     resetPassword(body, callback) {
-        console.log("ada",body);
-        
-        
+
         var pass = bcrypt.hashSync(body.password, saltFactor);
-        console.log("bds",pass);
-        
 
         user.updateOne({ password: pass }, (err, result) => {
             if (err) {
                 callback(err);
             } else {
-                console.log("result",result)
+                console.log("result", result)
                 console.log("Password Reseted Successfully....");
-                return callback(null,result);
+                return callback(null, result);
+            }
+        })
+    }
+
+    getAllUser(body, callback) {
+
+        user.find({}, (err, result) => {
+            if (err) {
+                callback(err);
+            } else {
+                console.log("result", result)
+                return callback(null, result);
             }
         })
     }

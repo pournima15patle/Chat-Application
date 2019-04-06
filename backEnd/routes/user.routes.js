@@ -10,6 +10,7 @@ module.exports = (app) => {
 
     //require the controller file and middleware.
     const user = require('../controllers/user.controller.js');
+    const chatCtrl=require('../controllers/chatController');
     const token=require('../middleware/decodeToken');
     // Create a new user
     app.post('/register', user.registerController);
@@ -19,5 +20,9 @@ module.exports = (app) => {
     app.post('/forgotPassword',user.forgotPassword);
     // For reseting the password
     app.post('/resetPassword',token.checkToken, user.resetPassController);
+    //for getting all user
+    app.get('/getAllUser', user.getAllUserController);
+     
+    // app.post('/addMessage', chatCtrl.chatController)
     
 }

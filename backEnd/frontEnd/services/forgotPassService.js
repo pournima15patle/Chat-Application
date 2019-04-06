@@ -1,7 +1,7 @@
 app.service('serviceAbcd', function ($http) {
     
     this.register = function (data) {
-        console.log("=sdfhgsdfdgsfghsdfhgsfghsdf:" ,data)
+        
         //send the data and get response
         $http({
             method: 'POST',
@@ -9,7 +9,7 @@ app.service('serviceAbcd', function ($http) {
             data: data,
         }).then(
             function successCallBack(response) {
-                                console.log("Forgot password successfully in client side", response);
+             console.log("Forgot password successfully in client side", response);
 
                 var userId = response.data.result._id;
                 },

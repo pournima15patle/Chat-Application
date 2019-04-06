@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body ng-app="chatApp">
+<body ng-app="chatApp" class='body1'>
 
     <div class="container" ng-controller="loginController">
         <form form name="loginForm" novalidate>
@@ -20,7 +20,7 @@
                 <label for="password">Password</label><br />
                 <input type="password" id="password" ng-model="password" placeholder="Enter password" required><br><br>
 
-                <button type="button" ng-click="login()">Login</button><br>
+                <button type="button" class='button1' ng-click="login()">Login</button><br>
                 
                 <a href="#!/register" ng-click="go()">Register</a>
                 <span class="element1"><a href="#!/forgotPassword" ng-click="go2()">Forgot Password</a></span>

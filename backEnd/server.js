@@ -8,9 +8,10 @@
  *  @version  :1.0
  *  @since    :28-03-2019
  *****************************************************************************************************/
-
+const http=require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
+
 
 // create express app
 const app = express();
@@ -27,8 +28,8 @@ app.use(express.static('./frontEnd'));
 
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
@@ -50,7 +51,35 @@ app.get('/', (req, res) => {
 // Require User routes
 require('./routes/user.routes.js')(app);
 
+//importing socketIO to get connection between client and server.
+var socketIO =require('socket.io');
+
+var chatControl = require('./controllers/chatController');
+
+
 // listen for requests
-app.listen(4000, () => {
+ var server=app.listen(4000, () => {
     console.log("Server is listening on port 4000");
 });
+
+const io = require('socket.io')(server);
+//checking for events connection will be listening  for incoming sockets.
+io.on('connection',function(socket){
+
+    console.log("socket is connected");
+
+    socket.on('createMessage',function(message){
+        //saving message to database
+        chatControl.chatController(message,(err,data)=>{
+            if(err){
+                console.log('error in message', err);
+            }else{
+                console.log('message :',message);
+                io.emit('chatMessage',message);
+            }
+        })
+    socket.on('Disconnect',function(){
+        console.log('user disconnected...')
+    })
+    })
+})

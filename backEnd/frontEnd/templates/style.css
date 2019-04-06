@@ -5,7 +5,7 @@ input {
     box-sizing: border-box;
     
   }
-  button {
+  .button1 {
     text-align: center;
     background-color:green;
     border-radius: 12px;
@@ -53,6 +53,13 @@ a{
     margin-left: 229px;
 
   }
+
+  /* ******************************************************* */
+  
+  .body1{
+    margin: auto;
+    
+  }
   .home1{
     
     font-size: 20px;
@@ -64,6 +71,12 @@ a{
     margin-right: 1em; */
     text-align: center;
   }
+  .logout{
+    color: blue;
+    float: right;
+    margin: -21px;
+    margin-right: 45px;
+  }
   .font1{
     font-size: 40px;
     font-weight: bold;
@@ -72,5 +85,52 @@ a{
     border-style: groove;
     padding-top: 1px;
     padding-bottom: 500px;
+    width: 936px;
 
+  }
+  .home2{
+    position: absolute;
+    border-style: inherit;
+    font-weight: bold;
+    width:300px;
+    height:450;
+    
+    float:left;
+  }
+  .space{
+    border-style: inherit;
+    padding-bottom: 22px;
+    background-color:gray;
+  }
+  .home3{
+    border-style: inherit;
+    text-align: center;
+    font-weight: bold;
+    width: 581px;
+    position: absolute;
+    height: 300px;
+    float: right;
+    margin-left: 352px;
+    padding-bottom: 114px;
+  }
+  .InputText{
+    border-style: inherit;
+    position: absolute;
+    margin: 417px;
+    margin-left: 352px;
+    padding-bottom: 33px;
+    width: 500px;
+  }
+  .send{
+    border-style: inherit;
+    background-color:rgb(12, 149, 240);
+    position: absolute;
+    margin: 417px;
+    margin-left: 858px;
+    padding-bottom: 14px;
+    vertical-align: middle;
+    font-size: 20px;
+    cursor: pointer; 
+    font-family: "Times New Roman", Times, serif;
+    padding-left: 33px;
   }
