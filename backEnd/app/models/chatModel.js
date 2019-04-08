@@ -56,6 +56,20 @@ class chatModel {
             }
         })
     }
+    
+    getUserMsg(body,callback){
+        chat.find({}, (err,data)=>{
+            if(err){
+                return callback(err);
+            }else{
+                console.log('user msg',data);
+                
+                return callback(null,data);
+            }
+        })
+
+        
+    }
 
     
 }module.exports = new chatModel();

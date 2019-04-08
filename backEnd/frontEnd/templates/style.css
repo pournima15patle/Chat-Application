@@ -84,7 +84,7 @@ a{
   .main{
     border-style: groove;
     padding-top: 1px;
-    padding-bottom: 500px;
+    padding-bottom: 515px;
     width: 936px;
 
   }
@@ -93,7 +93,7 @@ a{
     border-style: inherit;
     font-weight: bold;
     width:300px;
-    height:450;
+    height: 454px;
     
     float:left;
   }
@@ -113,14 +113,16 @@ a{
     margin-left: 352px;
     padding-bottom: 114px;
   }
-  .InputText{
+  .InputText {
     border-style: inherit;
     position: absolute;
     margin: 417px;
-    margin-left: 352px;
-    padding-bottom: 33px;
-    width: 500px;
-  }
+    margin-left: 353px;
+    padding-bottom: 11px;
+    padding-left: 40px;
+    margin-bottom: -86px;
+    width: 508px;
+}
   .send{
     border-style: inherit;
     background-color:rgb(12, 149, 240);

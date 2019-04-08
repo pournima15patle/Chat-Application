@@ -16,13 +16,16 @@ app.controller('loginController', function ($scope, $location, loginService) {
         }
         console.log(data);
 
-        loginService.login(data);
+        loginService.login(data,$location);
     }
 
-    $scope.go = function (path) {
-        $location.path("/register");
-    };
-    $scope.go2 = function (path) {
-        $location.path("/forgotPassword");
-    };
+    // $scope.go = function (path) {
+    //     $location.path("/register");
+    // };
+    // $scope.go1=function(path){
+    //     $location.path("/home");
+    // }
+    // $scope.go2 = function (path) {
+    //     $location.path("/forgotPassword");
+    // };
 });

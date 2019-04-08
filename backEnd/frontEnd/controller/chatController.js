@@ -1,19 +1,64 @@
-app.controller('chatController',function($scope,SocketService,chatService){
-    
-   $scope.message=[];
-    
+app.controller('chatController', function ($scope, $location, SocketService, chatService) {
 
-    $scope.userName=localStorage.getItem('name');
+    $scope.message = '';
+    // taking the array to stored the messages
+    $scope.allUserMsg = [];
+
+    $scope.userName = localStorage.getItem('name');
     $scope.userId = localStorage.getItem('userid');
-    $scope.receiver=localStorage.getItem('receiverId');
+    $scope.receiver = localStorage.getItem('receiverId');
 
-    SocketService.on('chatMessage',message)={
-       
-        $scope.message.push(message)
+    SocketService.on('chatMessage', (message) => {
+        if (localStorage.getItem('userId') == message.senderUserId || (localStorage.getItem('userId') == message.recieverUserID) && localStorage.getItem('receiverId') == message.senderUserId) {
+            if ($scope.allUserMsg === undefined) {
+                $scope.allUserMsg = message;
+            } else {
+                $scope.allUserMsg.push(message);
+            }
+        }
+
+    });
+
+
+    $scope.getAllUser = function () {
+        chatService.getAllUser($scope);
     }
-    
+    $scope.getAllUser();
+
+    $scope.person = function (Data) {//select person from list
+        $scope.allUserArr = '';
+
+        localStorage.setItem('receiverName', Data.name);//getting data from localstorage
+        localStorage.setItem('receiverId', Data._id);
+        $scope.recieverUserName = localStorage.getItem('receivername');
+        $scope.getUserMsg();
+    }
+    //get all message
+    $scope.getUserMsg = function () {
+        console.log("hello world");
+        chatService.getUserMsg($scope);
+    }
+    $scope.getUserMsg();
+   
+        $scope.sendmessage = function () { //send message function
+            var msg = {
+                'senderUserId': localStorage.getItem('userId'),
+                'senderName': localStorage.getItem('name'),
+                'recieverUserId': localStorage.getItem('receiverId'),
+                'recieverName': localStorage.getItem('receivername'),
+                'message': $scope.message
+            };
+            $scope.message = '';
+            SocketService.emit('createMessage', msg);//emitting the message to the browser
+        }
+
     
 
     
+        $scope.logout = function () {
+            localStorage.clear();
+            $location.path('/login')//return back to login page
+        }
     
-})
+    
+});

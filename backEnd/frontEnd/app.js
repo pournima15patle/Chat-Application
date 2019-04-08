@@ -1,5 +1,7 @@
-var app = angular.module("chatApp", ["ngRoute"]);
-app.config(function ($routeProvider) {
+var app = angular.module("chatApp", ['ngRoute','btford.socket-io']);
+app.config(function ($routeProvider,$routeProvider) {
+    $routeProvider.otherwise('/login')
+
     $routeProvider
 
         .when("/login", {
@@ -23,7 +25,6 @@ app.config(function ($routeProvider) {
             templateUrl: "/templates/home.html",
             controller: "chatController"
         });
-    // $routeProvider.otherwise('/login')
 });
 app.service('SocketService', ['socketFactory', function SocketService(socketFactory) {
     return socketFactory({

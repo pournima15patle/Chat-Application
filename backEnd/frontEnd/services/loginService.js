@@ -1,6 +1,6 @@
 app.service('loginService', function ($http) {
 
-    this.login = function (data, $scope) {
+    this.login = function (data, $location) {
         //send the data and get response
         $http({
             method: 'POST',
@@ -19,9 +19,10 @@ app.service('loginService', function ($http) {
                 localStorage.setItem("Name", name);
                 localStorage.setItem("Token", token);
                 localStorage.setItem("email", email);
+                $location.path("home");
 
                 //after login successful go to direct homepage
-                // $state.go('homePage');
+                // $state.go1('home');
             },
             function errorCallBack(error) {
                 console.log('Login failed please check your username or password');

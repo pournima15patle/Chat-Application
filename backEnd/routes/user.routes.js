@@ -23,6 +23,5 @@ module.exports = (app) => {
     //for getting all user
     app.get('/getAllUser', user.getAllUserController);
      
-    // app.post('/addMessage', chatCtrl.chatController)
     
 }

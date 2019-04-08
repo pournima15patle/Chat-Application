@@ -80,6 +80,8 @@ class Usermodel {
 
     //Creating user model for forgot password
     forgotPassword(body, callback) {
+        console.log("body",body);
+        
         user.findOne({ 'email': body.email }, (err, result) => {
             if (err) {
                 console.log("error", err);
