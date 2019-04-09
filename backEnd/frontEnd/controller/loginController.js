@@ -1,22 +1,26 @@
 /*****************************************************************************************************
-*  @Purpose  :
+*  @Purpose  :To write the login controller
 *              
-*  @file     :user.routes.js             
+*  @file     :loginController.js             
 *  @author   :pournima15patle
 *  @version  :1.0
 *  @since    :19-03-2019
 *****************************************************************************************************/
 
 app.controller('loginController', function ($scope, $location, loginService) {
+    try {
+        $scope.login = function () {
+            var data = {
+                'email': $scope.email,
+                'password': $scope.password
+            }
+            console.log(data);
 
-    $scope.login = function () {
-        var data = {
-            'email': $scope.email,
-            'password': $scope.password
+            loginService.login(data, $location);
         }
-        console.log(data);
-
-        loginService.login(data,$location);
+    }
+    catch{
+        console.log('err', err);
     }
 
     // $scope.go = function (path) {

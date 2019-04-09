@@ -1,24 +1,27 @@
 app.service('resetPassService', function ($http) {
+    try {
+        this.resetPassword = function (data, $scope) {
+            //send the data and get response
+            $http({
+                method: 'POST',
+                url: 'http://localhost:4000/resetPassword',
+                data: data,
+                headers: { 'token': $scope.token }
 
-    this.resetPassword = function (data, $scope) {
-        //send the data and get response
-        $http({
-            method:'POST',
-            url: 'http://localhost:4000/resetPassword',
-            data: data,
-            headers:{'token':$scope.token}
+            }).then(
+                function successCallBack(response) {
+                    console.log("Reset password successfully in client side", response);
 
-        }).then(
-            function successCallBack(response) {
-                console.log("Reset password successfully in client side", response);
+                },
+                function errorCallBack(error) {
+                    console.log('Failed to reset the password');
+                    console.log(error);
+                    loginMessage = ' Password does not match ';
 
-            },
-            function errorCallBack(error) {
-                console.log('Failed to reset the password');
-                console.log(error);
-                loginMessage = ' Password does not match ';
-
-            }
-        );
+                }
+            );
+        }
+    } catch (err) {
+        console.log('err', err);
     }
 });

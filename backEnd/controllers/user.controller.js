@@ -1,6 +1,8 @@
 /*****************************************************************************************************
 *  @Purpose  :To write the controller for login,register, forgot Password and reset password and
               save and retrieve user data from the MondoDB database.
+
+*  @file     :user.controller.js                 
 *  @author   :pournima15patle
 *  @version  :1.0
 *  @since    :19-03-2019

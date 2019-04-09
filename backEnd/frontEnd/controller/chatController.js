@@ -1,3 +1,14 @@
+/*****************************************************************************************************
+ *  @Purpose  :To create the chat controller to tell the server what information our chat
+ *             objects are going to contain. and methods declare for getting all user and 
+ *              to showing the list and chat .
+ *  
+ *  @file     :user.model.js
+ *  @author   :pournima15patle
+ *  @version  :1.0
+ *  @since    :28-03-2019
+ *****************************************************************************************************/
+
 app.controller('chatController', function ($scope, $location, SocketService, chatService) {
 
     $scope.message = '';
@@ -26,39 +37,37 @@ app.controller('chatController', function ($scope, $location, SocketService, cha
     $scope.getAllUser();
 
     $scope.person = function (Data) {//select person from list
-        $scope.allUserArr = '';
+        console.log('data', Data)
+        $scope.allUserMsg = '';
 
         localStorage.setItem('receiverName', Data.name);//getting data from localstorage
         localStorage.setItem('receiverId', Data._id);
-        $scope.recieverUserName = localStorage.getItem('receivername');
+        $scope.recieverUserName = localStorage.getItem('receivername'); //get the receiver name to show in user list
         $scope.getUserMsg();
     }
     //get all message
     $scope.getUserMsg = function () {
-        console.log("hello world");
+        console.log(" hello ");
         chatService.getUserMsg($scope);
     }
     $scope.getUserMsg();
-   
-        $scope.sendmessage = function () { //send message function
-            var msg = {
-                'senderUserId': localStorage.getItem('userId'),
-                'senderName': localStorage.getItem('name'),
-                'recieverUserId': localStorage.getItem('receiverId'),
-                'recieverName': localStorage.getItem('receivername'),
-                'message': $scope.message
-            };
-            $scope.message = '';
-            SocketService.emit('createMessage', msg);//emitting the message to the browser
-        }
 
-    
+    $scope.sendmessage = function () { //send message function
+        var msg = {
+            'senderUserId': localStorage.getItem('userId'),
+            'senderName': localStorage.getItem('name'),
+            'recieverUserId': localStorage.getItem('receiverId'),
+            'recieverName': localStorage.getItem('receivername'),
+            'message': $scope.message
+        };
+        $scope.message = '';
+        SocketService.emit('createMessage', msg);//emitting the message to the browser
+    }
 
-    
-        $scope.logout = function () {
-            localStorage.clear();
-            $location.path('/login')//return back to login page
-        }
-    
-    
+    $scope.logout = function () {
+        localStorage.clear();
+        $location.path('/login')//return back to login page
+    }
+
+
 });

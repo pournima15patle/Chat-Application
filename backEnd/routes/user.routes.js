@@ -12,6 +12,7 @@ module.exports = (app) => {
     const user = require('../controllers/user.controller.js');
     const chatCtrl=require('../controllers/chatController');
     const token=require('../middleware/decodeToken');
+    //const authroutes=require('./authorisation');
     // Create a new user
     app.post('/register', user.registerController);
     // login the user
@@ -20,8 +21,13 @@ module.exports = (app) => {
     app.post('/forgotPassword',user.forgotPassword);
     // For reseting the password
     app.post('/resetPassword',token.checkToken, user.resetPassController);
+
+    //app.use('/auth',authroutes);
     //for getting all user
     app.get('/getAllUser', user.getAllUserController);
+    app.get('/message',chatCtrl.getUserMsg)
+    
+    
      
     
 }

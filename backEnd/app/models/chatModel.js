@@ -1,3 +1,13 @@
+/*****************************************************************************************************
+ *  @Purpose  :To create the chat model to tell the server what information our chat
+ *             objects are going to contain. and set up a database schema.
+ *  
+ *  @file     :chatModel.js
+ *  @author   :pournima15patle
+ *  @version  :1.0
+ *  @since    :28-03-2019
+ *****************************************************************************************************/
+//require moongoose to creating the schema
 var mongoose = require('mongoose');
 
 const chatSchema = mongoose.Schema({
@@ -31,17 +41,17 @@ const chatSchema = mongoose.Schema({
     });
 
 var chat = mongoose.model('chat', chatSchema);
-
+//controller for addMessage methode
 class chatModel {
-    addMessage(body, callback) {
-          console.log("dfsesd",body);
+    addMessage(data, callback) {
+          console.log("dfsesd",data);
         
           const newMsg = new chat({
-            'senderUserId': body.senderUserId,
-            'senderName':body.senderName,
-            'reciverUserId':body.reciverUserId,
-            'reciverName':body.reciverName,
-            'message':body.message
+            'senderUserId': data.senderUserId,
+            'senderName':data.senderName,
+            'reciverUserId':data.reciverUserId,
+            'reciverName':data.reciverName,
+            'message':data.message
         })
         console.log("sdrfs",newMsg);
         

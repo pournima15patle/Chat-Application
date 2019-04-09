@@ -8,6 +8,7 @@
 var jwt=require('jsonwebtoken');
 
 module.exports={
+    //to generate token
     generateToken(payload){
         const token=jwt.sign({payload},'secretekey',{expiresIn:'2h'})
         const obj={

@@ -1,3 +1,11 @@
+/*****************************************************************************************************
+ *  @Purpose  :To create the user service to send the callback to the user model. 
+ *  @file     :userService.js
+ *  @author   :pournima15patle
+ *  @version  :1.0
+ *  @since    :28-03-2019
+ *****************************************************************************************************/
+
 var userModel = require('../app/models/user.model');
 
 exports.registerService = (req , callback) => {

@@ -51,7 +51,8 @@ class Usermodel {
                 return callback(null, data);
             }
         })
-    }
+    };
+
 
     //Creating usermodel for login method.
     login(body, callback) {
@@ -80,8 +81,8 @@ class Usermodel {
 
     //Creating user model for forgot password
     forgotPassword(body, callback) {
-        console.log("body",body);
-        
+        console.log("body", body);
+
         user.findOne({ 'email': body.email }, (err, result) => {
             if (err) {
                 console.log("error", err);
@@ -121,7 +122,7 @@ class Usermodel {
     }
 
     getAllUser(body, callback) {
-
+        //To find the user by find method 
         user.find({}, (err, result) => {
             if (err) {
                 callback(err);

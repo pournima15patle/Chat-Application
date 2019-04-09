@@ -1,5 +1,6 @@
 app.service('loginService', function ($http) {
 
+    try{
     this.login = function (data, $location) {
         //send the data and get response
         $http({
@@ -31,5 +32,8 @@ app.service('loginService', function ($http) {
 
             }
         );
+    }}
+    catch(err){
+        console.log('err',err);
     }
 });
