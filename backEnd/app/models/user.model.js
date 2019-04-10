@@ -114,7 +114,7 @@ class Usermodel {
             if (err) {
                 callback(err);
             } else {
-                console.log("result", result)
+                // console.log("result", result)
                 console.log("Password Reseted Successfully....");
                 return callback(null, result);
             }
@@ -127,7 +127,7 @@ class Usermodel {
             if (err) {
                 callback(err);
             } else {
-                console.log("result", result)
+                // console.log("result", result)
                 return callback(null, result);
             }
         })

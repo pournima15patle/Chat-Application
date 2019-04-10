@@ -16,23 +16,28 @@
 
         <div class='home2'>
             <p>User List</p>
-            <ul> 
+            <ul>
                 <li>
                     <p ng-repeat="x in allUser" ng-click="person(x)" ng-show="userName!=x.name">
                         {{x.name}}</p>
                 </li>
             </ul>
-           
+
         </div>
 
         <div class='home3'>
             <p>Chat</p>
             <p>{{recieverUserName}}</p>
+            <li class='msg'>
+                <p ng-repeat="x in allUserMsg" ng-click="person(x)">
+                    {{x.message}}</p>
+            </li>
+
+
         </div>
 
-        
-            <input type="text" class='InputText' placeholder="type here.....">
-       
+        <input type="text" class='InputText' ng-model="message" placeholder="type here.....">
+
 
         <button type="button" class='send' ng-click="sendmessage()">Send</button>
 

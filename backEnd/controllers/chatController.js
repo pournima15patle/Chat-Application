@@ -7,20 +7,24 @@
 
 var chatServ = require('../services/chatService');
 
-exports.chatController = (req, res) => {
-    console.log("request", req);
+exports.chatController = (req, callback) => {
+    // console.log("request", req);
           var response={}
-    chatServ.chatService(req.body, (err, data) => {
+    chatServ.chatService(req, (err, data) => {
         if (err) {
-            console.log('asgdsggsgdsff',req.body)
-            response.status = false;
-            response.errors = err;
-            return res.status(400).send(response);
+            // console.log('asgdsggsgdsff',req.body)
+            // response.status = false;
+            // response.errors = err;
+            // return res.status(400).send(response);
+            callback(err);
         } else {
-            response.status = true;
-            response.result = data;
-            console.log("artfear",data);
-            return res.status(200).send(response);
+            // response.status = true;
+            // response.result = data;
+            // console.log("artfear",data);
+            // return res.status(200).send(response);
+            console.log("data at controller: ",data);
+            
+            callback(null , data);
         }
     })
 }
@@ -35,7 +39,7 @@ exports.getUserMsg=(req,res)=>{
         }else{
             response.status = true;
             response.result = data;
-            console.log('gklsofjewfs;lfwf',responce);
+            // console.log('gklsofjewfs;lfwf',responce);
             return res.status(200).send(response);
             
         }

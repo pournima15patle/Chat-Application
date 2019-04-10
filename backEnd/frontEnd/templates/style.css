@@ -125,14 +125,19 @@ a{
 }
   .send{
     border-style: inherit;
-    background-color:rgb(12, 149, 240);
+    background-color: rgb(12, 149, 240);
     position: absolute;
-    margin: 417px;
+    margin: 246px;
     margin-left: 858px;
-    padding-bottom: 14px;
+    margin-top: 417px;
+    padding-bottom: 13px;
     vertical-align: middle;
     font-size: 20px;
-    cursor: pointer; 
+    cursor: pointer;
     font-family: "Times New Roman", Times, serif;
     padding-left: 33px;
+  }
+
+  .msg{
+    margin-left: 327px;
   }

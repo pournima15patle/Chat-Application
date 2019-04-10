@@ -39,9 +39,9 @@ app.service('chatService', function ($http) {
                 
                 function successCallback(response) {
                     console.log("sucess");
-                    console.log(response.data.message);
+                    console.log("backend response",response.data.message);
 
-                    for (let i = 0; i < (response.data.message); i++) {  //(response.data.message).length *change was done
+                    for (let i = 0; i < (response.data.message.length); i++) {  
                         a = response.data.message[i];
 
                         if (((localStorage.getItem('userId') == a.senderUserId) && (localStorage.getItem('receiverId') == a.recieverUserId)) || ((localStorage.getItem('userId') == a.recieverUserId && localStorage.getItem('receiverId') == a.senderUserId))) {
@@ -54,7 +54,7 @@ app.service('chatService', function ($http) {
                     console.log("Users msg successfull ", arr);
 
                 },
-                function errorCallback(response) {console.log("else part");
+                function errorCallback(response) { console.log("else part");
                     console.log("Unsuccessfull ", response);
 
 

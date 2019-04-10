@@ -25,6 +25,7 @@ module.exports = (app) => {
     //app.use('/auth',authroutes);
     //for getting all user
     app.get('/getAllUser', user.getAllUserController);
+    
     app.get('/message',chatCtrl.getUserMsg)
     
     

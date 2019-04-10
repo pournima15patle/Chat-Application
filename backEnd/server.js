@@ -68,14 +68,16 @@ io.on('connection',function(socket){
 
     console.log("socket is connected");
 
-    socket.on('createMessage',function(message){
+    socket.on('chatMessage',function(message){
         //saving message to database
+        console.log(message);
+        
         chatControl.chatController(message,(err,data)=>{
             if(err){
                 console.log('error in message', err);
             }else{
-                console.log('message :',message);
-                io.emit('chatMessage',message);
+                console.log('message :', data);
+                io.emit('chatMessage', message);
             }
         })
     socket.on('Disconnect',function(){

@@ -18,7 +18,7 @@ exports.chatService = (req , callback) => {
       if(err){
         callback(err);
       }else{
-        console.log("service result",result);
+        // console.log("service result",result);
         callback(null,result)
       }
     })

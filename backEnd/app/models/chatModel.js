@@ -13,26 +13,30 @@ var mongoose = require('mongoose');
 const chatSchema = mongoose.Schema({
 
     senderUserId: {
-        type: String
+        type: String,
+        required:[true,'sender user id required']
 
     },
     senderName: {
-        type: String
-
+        type: String,
+        required:[true,'sender name required']
     },
 
-    reciverUserId: {
+    recieverUserId: {
 
-        type: String
+        type: String,
+        required:[true,'receiver user id required']
 
     },
-    reciverName: {
-        type: String
+    recieverName: {
+        type: String,
+        required:[true,'receiver name required']
 
     },
     message: {
 
-        type: String
+        type: String,
+        required:[true,'message required']
 
     }
 
@@ -44,16 +48,16 @@ var chat = mongoose.model('chat', chatSchema);
 //controller for addMessage methode
 class chatModel {
     addMessage(data, callback) {
-          console.log("dfsesd",data);
+           console.log("dfsesd",data);
         
           const newMsg = new chat({
             'senderUserId': data.senderUserId,
             'senderName':data.senderName,
-            'reciverUserId':data.reciverUserId,
-            'reciverName':data.reciverName,
+            'recieverUserId':data.recieverUserId,
+            'recieverName':data.recieverName,
             'message':data.message
         })
-        console.log("sdrfs",newMsg);
+        // console.log("sdrfs",newMsg);
         
         //Save the new user data into the database 
         newMsg.save((err, data) => {
@@ -72,7 +76,7 @@ class chatModel {
             if(err){
                 return callback(err);
             }else{
-                console.log('user msg',data);
+                // console.log('user msg',data);
                 
                 return callback(null,data);
             }
