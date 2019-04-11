@@ -10,6 +10,7 @@ app.controller('registerController', function ($scope, $location, serviceRegiste
 
     try {
         $scope.register = function () {
+            
             var data = {
                 'name': $scope.name,
                 'email': $scope.email,

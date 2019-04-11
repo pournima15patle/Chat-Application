@@ -26,7 +26,7 @@ module.exports = (app) => {
     //for getting all user
     app.get('/getAllUser', user.getAllUserController);
     
-    app.get('/message',chatCtrl.getUserMsg)
+    app.get('/getUserMsg',chatCtrl.getUserMsg)
     
     
      

@@ -22,7 +22,7 @@ app.controller('chatController', function ($scope, $location, SocketService, cha
     SocketService.on('chatMessage', (message) => {
         console.log("message at client: ", message);
 
-        if (localStorage.getItem('userid') == message.senderUserId || (localStorage.getItem('userId') == message.recieverUserID) && localStorage.getItem('receiverId') == message.senderUserId) {
+        if (localStorage.getItem('userId') == message.senderUserId || (localStorage.getItem('userId') == message.recieverUserID) && localStorage.getItem('receiverId') == message.senderUserId) {
             if ($scope.allUserMsg === undefined) {
                 $scope.allUserMsg = message;
             } else {

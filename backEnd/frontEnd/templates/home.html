@@ -29,8 +29,14 @@
             <p>Chat</p>
             <p>{{recieverUserName}}</p>
             <li class='msg'>
-                <p ng-repeat="x in allUserMsg" ng-click="person(x)">
-                    {{x.message}}</p>
+                
+                    <div ng-repeat="chat in allUserMsg" ng-show="userId != chat.senderUserId" >
+                        <p class="chatMsg"> {{chat.message}}</p>
+                    </div>
+                    <div ng-show="userId != chat.senderUserId">
+                        <!-- <div class="user-photo"> <img src=""></div> -->
+                        <p> {{chat.message}}</p>
+                    </div>
             </li>
 
 

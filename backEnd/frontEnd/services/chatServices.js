@@ -39,10 +39,12 @@ app.service('chatService', function ($http) {
                 
                 function successCallback(response) {
                     console.log("sucess");
-                    console.log("backend response",response.data.message);
+                    console.log("base",response);
+                    // console.log("backend response",response.data.result);
+                   
 
-                    for (let i = 0; i < (response.data.message.length); i++) {  
-                        a = response.data.message[i];
+                    for (let i = 0; i < (response.data.length); i++) {  
+                        a = response.data[i];
 
                         if (((localStorage.getItem('userId') == a.senderUserId) && (localStorage.getItem('receiverId') == a.recieverUserId)) || ((localStorage.getItem('userId') == a.recieverUserId && localStorage.getItem('receiverId') == a.senderUserId))) {
                             console.log("local user is ", localStorage.getItem('userId'), "a user is ", a.senderUserId, " local receiver id is ", localStorage.getItem('receiverId'), "  receiver is ", a.recieverUserId);

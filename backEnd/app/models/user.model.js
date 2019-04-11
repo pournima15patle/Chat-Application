@@ -132,5 +132,6 @@ class Usermodel {
             }
         })
     }
+    
 }
 module.exports = new Usermodel();
