@@ -138,6 +138,12 @@ a{
     padding-left: 33px;
   }
 
-  .msg{
-    margin-left: 327px;
+  .senderMessage{
+    margin-left: 380px;
+    background-color:rgb(243, 222, 225);
+  }
+
+  .receiverMessage{
+    margin-right: 364px;
+    background-color:rgb(243, 222, 225);
   }

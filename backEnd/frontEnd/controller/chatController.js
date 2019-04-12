@@ -15,16 +15,21 @@ app.controller('chatController', function ($scope, $location, SocketService, cha
     // taking the array to stored the messages
     $scope.allUserMsg = [];
 
-    $scope.userName = localStorage.getItem('name');
+    $scope.userName = localStorage.getItem('Name');
     $scope.userId = localStorage.getItem('userId');
     $scope.receiver = localStorage.getItem('receiverId');
+console.log('username', $scope.userName);
 
     SocketService.on('chatMessage', (message) => {
         console.log("message at client: ", message);
 
-        if (localStorage.getItem('userId') == message.senderUserId || (localStorage.getItem('userId') == message.recieverUserID) && localStorage.getItem('receiverId') == message.senderUserId) {
+        if (localStorage.getItem('userId') == message.senderUserId || (localStorage.getItem('userId') == message.recieverUserId) ) {
             if ($scope.allUserMsg === undefined) {
+                console.log('undefind');
+                
                 $scope.allUserMsg = message;
+                console.log($scope.allUserMsg);
+                
             } else {
                 $scope.allUserMsg.push(message);
                 console.log("array: ", $scope.allUserMsg);

@@ -8,7 +8,7 @@ app.service('chatService', function ($http) {
                     'token': $scope.token
                 }
             }).then(
-                function successCallback(response) { //call back function of http sevice
+                function successCallback(response) { //call back function of http service
                     $scope.allUser = response.data.result;
                     console.log(response.data.result);
 

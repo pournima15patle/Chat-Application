@@ -9,7 +9,7 @@
     <div class='main' ng-controller="chatController">
         <div class='home1'>
             <p class='font1'>Welcome to Chat Application</p>
-            <span class='user'>{{userName}}</span>
+            <span>{{userName}}</span>
             <a href="#!/login" class='logout' ng-click="logout()">Logout</a>
         </div>
         <div class='space'></div>
@@ -27,17 +27,27 @@
 
         <div class='home3'>
             <p>Chat</p>
-            <p>{{recieverUserName}}</p>
-            <li class='msg'>
-                
-                    <div ng-repeat="chat in allUserMsg" ng-show="userId != chat.senderUserId" >
-                        <p class="chatMsg"> {{chat.message}}</p>
+            <p>{{recieverName}}</p>
+
+            <div ng-repeat="chat in allUserMsg">
+
+                <div ng-if="userId == chat.senderUserId">
+                    <p class='senderMessage'> {{chat.message}}</p>
+                    <div>
+
                     </div>
-                    <div ng-show="userId != chat.senderUserId">
-                        <!-- <div class="user-photo"> <img src=""></div> -->
-                        <p> {{chat.message}}</p>
+
+                </div>
+                <div ng-if="userId == chat.recieverUserId">
+                    <p class='receiverMessage'> {{chat.message}}</p>
+
+
+                    <div>
+
                     </div>
-            </li>
+                </div>
+            </div>
+
 
 
         </div>

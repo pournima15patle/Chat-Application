@@ -61,7 +61,7 @@ var chatControl = require('./controllers/chatController');
  var server=app.listen(4000, () => {
     console.log("Server is listening on port 4000");
 });
-
+//creating instance of socket.io
 const io = require('socket.io')(server);
 //checking for events connection will be listening  for incoming sockets.
 io.on('connection',function(socket){
@@ -71,6 +71,7 @@ io.on('connection',function(socket){
     socket.on('chatMessage',function(message){
         //saving message to database
         console.log(message);
+                //io.emit('chatMessage', message);
         
         chatControl.chatController(message,(err,data)=>{
             if(err){
